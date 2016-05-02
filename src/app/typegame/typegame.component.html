@@ -1,0 +1,25 @@
+<p>===TypeGame ==</p>
+
+<md-card>
+	<md-card-content>
+			<span class="words" *ngFor="#word of words; #i = index" [class.selected]="i == wordIndex"> {{word}} </span>
+	</md-card-content>
+</md-card>
+<br/>
+<md-card>
+	<md-card-content>
+			<span class="words" [class.gameover]="gameover">{{typedText}}</span>
+			<span *ngIf="gameover">GAMEOVER</span>
+	</md-card-content>
+</md-card>
+
+<md-card>
+	<md-card-content>
+		<md-input-container class="md-block" flex-gt-sm>
+          	<label>Type Here</label>
+			<md-input [(ngModel)]="compareText" (keyup)="inputChange()" [class.error]="error === true">></md-input>
+          </md-input-container>
+	</md-card-content>
+</md-card>
+<button (click)="reset()">Reset</button>
+

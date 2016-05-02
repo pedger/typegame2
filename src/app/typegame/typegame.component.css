@@ -1,0 +1,26 @@
+body {
+	background-color: #eee;
+}
+p {color: blue;}
+
+md-card{
+	max-width: 30%;
+}
+.words {
+	font-size: large;
+	margin-left:4px;
+	/*border: 1px solid #ccc;*/
+}
+
+.selected {
+	color: red;
+	background-color:#eee;
+}
+
+.error {
+	color: red;
+}
+
+.gameover {
+	color: lightgreen;
+}
