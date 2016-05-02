@@ -35,20 +35,24 @@ export class Typegame {
 		
 	}
 
-	inputChange(){
-		if(this.wordIndex < this.words.length) {
-			if (this.compareText == this.words[this.wordIndex]) {
-				this.error = false;
-				this.typedText += this.compareText +' ';
-				this.wordIndex++;
-				this.compareText = ''; 
+	inputChange(event: KeyboardEvent) {
+		if (event.keyCode == '32'){
+			console.log("foi");
+			if(this.wordIndex < this.words.length) {
+				if (this.compareText.trim() == this.words[this.wordIndex]) {
+					this.error = false;
+					this.typedText += this.compareText +' ';
+					this.wordIndex++;
+					this.compareText = ''; 
+					if (this.wordIndex == this.words.length) { this.gameover = true; }
+				}
+				else {
+					this.error = true;
+				}
 			}
 			else {
-				this.error = true;
+				this.gameover = true;
 			}
-		}
-		else {
-			this.gameover = true;
 		}
 	}
 
@@ -56,5 +60,6 @@ export class Typegame {
 		this.gameover = false;
 		this.wordIndex = 0;
 		this.typedText = '';
+		this.compareText = '';
 	}
 }

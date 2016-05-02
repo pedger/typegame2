@@ -1,4 +1,4 @@
-<p>===TypeGame ==</p>
+<h2>===TypeGame===</h2>
 
 <md-card>
 	<md-card-content>
@@ -17,9 +17,11 @@
 	<md-card-content>
 		<md-input-container class="md-block" flex-gt-sm>
           	<label>Type Here</label>
-			<md-input [(ngModel)]="compareText" (keyup)="inputChange()" [class.error]="error === true">></md-input>
+			<md-input [(ngModel)]="compareText" (keyup)="inputChange($event)" [class.error]="error === true">></md-input>
           </md-input-container>
+
+          <button (click)="reset()">Reset</button>
+
 	</md-card-content>
 </md-card>
-<button (click)="reset()">Reset</button>
 
