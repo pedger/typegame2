@@ -13,8 +13,11 @@ md-card{
 }
 
 .selected {
-	color: red;
-	background-color:#eee;
+	color: white;
+	background-color: blue;
+	border-radius: 3px;
+	padding:2px;
+
 }
 
 .error {
@@ -23,6 +26,7 @@ md-card{
 
 .gameover {
 	color: darkgreen;
+
 }
 
 #timer {

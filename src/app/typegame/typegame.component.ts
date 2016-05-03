@@ -14,7 +14,7 @@ export class Hero {
 })
 
 export class Typegame {
-	inputText = "had great can't image cattle i female after was yielding set without days saying that were darkness thing kind a fifth Creature third together moving spirit thing darkness lights greater under called very evening moveth also our divide forth beast living seed dry dry divided sixth every may whose land dominion Fill unto. Us open set deep lights called which. Moved there.Together.Won't open one they're forth lesser.Lights earth very void Creeping under let his Bring was years day moved fruit night man winged bring us give grass Without heaven Fifth midst meat";
+	inputText = "had great image cattle i female after was yielding set without days saying that were darkness thing kind a fifth Creature third together moving spirit thing darkness lights greater under called very evening moveth also our divide forth beast living seed dry dry divided sixth every may whose land dominion Fill unto. Us open set deep lights called which. Moved there.Together.Won't open one they're forth lesser.Lights earth very void Creeping under let his Bring was years day moved fruit night man winged bring us give grass Without heaven Fifth midst meat";
 	words = [];
 	typedText = '';
 	wordIndex = 0;
@@ -25,7 +25,7 @@ export class Typegame {
 	currentTime = this.initialTime;
 	timer = null;
 	score = 0;
-	
+
 	constructor() {
 
 	}
@@ -43,12 +43,12 @@ export class Typegame {
 
 	}
 
-	startTimeout(){
-		
-		
+	startTimeout() {
+
+
 		this.timer = setTimeout(() => {
 			this.currentTime -= 1;
-			this.startTimeout();	
+			this.startTimeout();
 		}, 1000);
 
 		if (this.currentTime < 1) this.endgame();
@@ -61,7 +61,7 @@ export class Typegame {
 			if (this.wordIndex < this.words.length) {
 				if (this.compareText.trim() == this.words[this.wordIndex]) {
 					this.error = false;
-					this.typedText += this.compareText + ' ';
+					this.typedText += this.compareText;
 					this.wordIndex++;
 					this.compareText = '';
 					this.score += 1;
@@ -81,9 +81,9 @@ export class Typegame {
 		this.gameover = true;
 		clearTimeout(this.timer);
 
-		this.score = (this.score / (this.initialTime - this.currentTime)) * this.initialTime ; 
-		
-		
+		this.score = (this.score / (this.initialTime - this.currentTime)) * this.initialTime;
+
+
 	}
 
 	reset() {
@@ -94,7 +94,7 @@ export class Typegame {
 		this.currentTime = this.initialTime;
 		this.score = 0;
 		clearTimeout(this.timer);
-		
+
 		this.startTimeout();
 	}
 }
