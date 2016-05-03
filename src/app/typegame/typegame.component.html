@@ -1,32 +1,34 @@
-
-
 <md-card>
 	<md-card-content>
 		<h2>TypeGame</h2>
 		<span class="words" *ngFor="#word of words; #i = index" [class.selected]="i == wordIndex"> {{word}} </span>
 	</md-card-content>
 </md-card>
+
 <br/>
+
 <md-card>
 	<md-card-content>
 		<span class="words" [class.gameover]="gameover">{{typedText}}</span>
-		<span *ngIf="gameover">GAMEOVER <span id="score">Score = {{score}} words per {{initialTime}}s</span></span>
 	</md-card-content>
-
 </md-card>
+
 <md-card>
 	<md-card-content>
 		<md-input-container class="md-block" flex-gt-sm>
-        	<md-input placeholder="Type Here" autofocus [(ngModel)]="compareText" (keyup)="inputChange($event)" [class.error]="error === true" [disabled]="gameover"> </md-input> 
+        	<md-input placeholder="Type Here" size='40' autofocus [(ngModel)]="compareText" (keyup)="inputChange($event)" [class.error]="error === true" [disabled]="gameover"> </md-input> 
        	</md-input-container>
         <button (click)="reset()">Reset</button>
         <button (click)="endgame()">Endgame</button>
 	</md-card-content>
 </md-card>
 
+<br/>
+
 <md-card>
 	<md-card-content>
 		<div id="timer">{{currentTime}}s</div>
+		<span id="score" *ngIf="gameover">GAME OVER <span id="score">Score = {{score}} words per {{initialTime}}s</span></span>
 
 	</md-card-content>
 </md-card>
