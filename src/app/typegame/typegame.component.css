@@ -24,3 +24,7 @@ md-card{
 .gameover {
 	color: lightgreen;
 }
+
+#timer {
+	font-size: 40px;
+}
