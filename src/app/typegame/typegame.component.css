@@ -35,4 +35,26 @@ md-card{
 
 #score {
 	float:right;
+	font-size: 30px;
+}
+
+#inputID{
+	font-size: x-large;
+}
+
+.typed-words{
+	display: inline-block;
+	min-width: 30px;
+	background-color: #eee;
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
+
+span[contenteditable=true] {
+  border: 1px dashed #AAA;
+  width: 290px;
+  padding: 5px;
 }

@@ -9,17 +9,32 @@
 
 <md-card>
 	<md-card-content>
-		<span class="words" [class.gameover]="gameover">{{typedText}}</span>
+		<md-input-container class="md-block" flex-gt-sm>
+        	<md-input id="inputID" placeholder="Type Here" size='40' autofocus [(ngModel)]="compareText" (keyup)="inputChange($event)"  [disabled]="gameover">
+			 <md-hint *ngIf = "error" [class.error]="error === true" align="end">Error!</md-hint>
+        	</md-input> 
+       	</md-input-container>
+       	<br/>
+        
+        
 	</md-card-content>
 </md-card>
 
 <md-card>
 	<md-card-content>
-		<md-input-container class="md-block" flex-gt-sm>
-        	<md-input placeholder="Type Here" size='40' autofocus [(ngModel)]="compareText" (keyup)="inputChange($event)" [class.error]="error === true" [disabled]="gameover"> </md-input> 
-       	</md-input-container>
-        <button (click)="reset()">Reset</button>
-        <button (click)="endgame()">Endgame</button>
+		<!-- <span placeholder="teste" class="typed-words" contenteditable="true" (keyup)="inputChangeCE($event)"></span> --> -->
+		<!-- <span placeholder="teste" class="typed-words" *ngFor="#typed of typedText; #i = index" contenteditable="true" (keyup)="inputChangeCE($event)"> {{typed}} </span> -->
+		<span placeholder="Type here" class="words" [class.gameover]="gameover" contenteditable (keyup)="inputChangeCE($event)">{{typedText}}</span>
+	</md-card-content>
+</md-card>
+
+
+
+<br/>
+<md-card >
+	<md-card-content>
+	<h2 *ngIf="!gameover" color="primary">GAME ON!</h2>
+	<h2 *ngIf="gameover" color="primary">GAME OVER</h2>
 	</md-card-content>
 </md-card>
 
@@ -28,8 +43,20 @@
 <md-card>
 	<md-card-content>
 		<div id="timer">{{currentTime}}s</div>
-		<span id="score" *ngIf="gameover">GAME OVER <span id="score">Score = {{score}} words per {{initialTime}}s</span></span>
+		
+		<button md-raised-button color="primary"(click)="reset()" >
+			<md-icon class="md-24">reset</md-icon>
+		</button>
 
+		
+		
+		<button md-raised-button color="warn"(click)="endgame()">Endgame</button>
+		
+<!-- 		<button md-fab>
+		   <md-icon class="md-24">add</md-icon>
+		</button>
+ -->
+		<span id='score' *ngIf="gameover" color="primary">Score = {{score}} words / {{initialTime}}s</span>
 	</md-card-content>
 </md-card>
 
