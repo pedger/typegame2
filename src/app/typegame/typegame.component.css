@@ -54,7 +54,7 @@ md-card{
 }
 
 span[contenteditable=true] {
-  border: 1px dashed #AAA;
+ /* border: 1px dashed #AAA;
   width: 290px;
-  padding: 5px;
+  padding: 5px;*/
 }

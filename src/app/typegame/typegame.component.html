@@ -22,7 +22,7 @@
 
 <md-card>
 	<md-card-content>
-		<!-- <span placeholder="teste" class="typed-words" contenteditable="true" (keyup)="inputChangeCE($event)"></span> --> -->
+		<!-- <span placeholder="teste" class="typed-words" contenteditable="true" (keyup)="inputChangeCE($event)"></span> -->
 		<!-- <span placeholder="teste" class="typed-words" *ngFor="#typed of typedText; #i = index" contenteditable="true" (keyup)="inputChangeCE($event)"> {{typed}} </span> -->
 		<span placeholder="Type here" class="words" [class.gameover]="gameover" contenteditable (keyup)="inputChangeCE($event)">{{typedText}}</span>
 	</md-card-content>

@@ -18,7 +18,7 @@ export class Typegame {
 	inputText = "had great image cattle i female after was yielding set without days saying that were darkness thing kind a fifth Creature third together moving spirit thing darkness lights greater under called very evening moveth also our divide forth beast living seed dry dry divided sixth every may whose land dominion Fill unto. Us open set deep lights called which. Moved there.Together.Won't open one they're forth lesser.Lights earth very void Creeping under let his Bring was years day moved fruit night man winged bring us give grass Without heaven Fifth midst meat";
 	words = [];
 	wordIndex = 0;
-	typedText = [];
+	typedText = '';
 	compareText = '';
 	error = false;
 	initialTime = 60;
@@ -37,7 +37,7 @@ export class Typegame {
 		console.log('TYPEGAME: initiated');
 		this.extractWords();
 		this.startTimeout();
-		this.typedText.push("Type Here");
+		//this.typedText.push("Type Here");
 	}
 
 	extractWords() {
@@ -56,22 +56,7 @@ export class Typegame {
 
 	}
 
-	inputChangeCE(event: KeyboardEvent){
-		var text = event.target.innerHTML);
-		if (event.keyCode == 32) {
-			text = text.substring(text.length - 6, 6);
-			console.log(text);
-			if (this.wordIndex < this.words.length) {
-				// console.log(event.target.innerHTML.trim());
-				// console.log(this.words[this.wordIndex]);
-				if (event.target.innerHTML.trim() == this.words[this.wordIndex])
-					this.typedText.push(event.target.innerHTML);
-
-
-			}
-		}
-
-	}
+	
 
 	inputChange(event: KeyboardEvent) {
 
@@ -80,7 +65,7 @@ export class Typegame {
 
 				if (this.compareText.trim() == this.words[this.wordIndex]) {
 					this.error = false;
-					this.typedText.push(this.compareText);
+					this.typedText += this.compareText;
 					this.wordIndex++;
 					this.compareText = '';
 					this.score += 1;
@@ -108,7 +93,7 @@ export class Typegame {
 	reset() {
 		this.gameover = false;
 		this.wordIndex = 0;
-		this.typedText = [];
+		this.typedText = '';
 		this.compareText = '';
 		this.currentTime = this.initialTime;
 		this.score = 0;
